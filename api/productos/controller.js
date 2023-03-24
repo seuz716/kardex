@@ -22,6 +22,26 @@ controladorProductos.get("/obtenerProductos", async function (req, res) {
   });
 });
 
+/*Crea un nuevo elemento al ser Post de debe solicitar los datos por body*/
+controladorProductos.post("/crearProducto", async function (req, res) {
+let datos = req.body;
+let producto = await productoService.crearProducto(datos);
+res.send({
+mensaje: producto.mensaje,
+datos: producto.datos,
+});
+});
+
+/*Actualiza un elemento por id*/
+controladorProductos.put("/actualizarProducto/:id", async function (req, res) {
+let id = req.params.id;
+let datos = req.body;
+let resultado = await productoService.actualizarProducto(id, datos);
+res.send(resultado);
+});
+
+
+
 module.exports = controladorProductos;
 
 

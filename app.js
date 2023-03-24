@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
-const dotenv = require('dotenv');
 const conexion = require('./database/connection');
 const controladorProductos = require('./api/productos/controller');
 
